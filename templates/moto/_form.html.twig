@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+<label> Nom de la moto </label>
+    {{ form_row (form.titre, {'attr': {'class':'form-control-lg','placeholder':'Titre'}}) }}
+<label> Description </label>
+    {{ form_row (form.description, {'attr': {'class':'form-control-lg','placeholder':'description'}}) }}
+<label> Km </label>
+    {{ form_row (form.km, {'attr': {'class':'form-control-lg','placeholder':'km'}}) }}
+<label> Prix </label>
+    {{ form_row (form.prix, {'attr': {'class':'form-control-lg','placeholder':'Prix'}}) }}
+<label> Date </label>
+    {{ form_row (form.date, {'attr': {'class':'form-control-lg','placeholder':'Date'}}) }}
+<label> Puissance </label>
+    {{ form_row (form.puissance, {'attr': {'class':'form-control-lg','placeholder':'Puissance'}}) }}
+{# <label> Marque </label>
+    {{ form_row (form.marque, {'attr': {'class':'form-control-lg','placeholder':'Marque'}}) }} #}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

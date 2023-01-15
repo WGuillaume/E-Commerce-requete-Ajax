@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Moto index{% endblock %}
+
+{% block body %}
+    <h1>Moto index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Km</th>
+                <th>Prix</th>
+                <th>Date</th>
+                <th>Puissance</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <h2> Bonjour {{app.user.prenom}} {{app.user.nom}}, votre email est {{app.user.email}} </h2>
+    
+    {% if app.user %}
+        <a href= "{{ path ('app_logout')}}"> Déconnexion </a>
+    {% endif %}
+        <tbody>
+        <form action="{{path('app_moto_index')}}" method='post'>
+        <label>Recherche rapide </label>
+        <input type="text" name="search">
+        <input type="submit">
+        </from>
+        {% for moto in moto %}
+            <tr>
+                <td>{{ moto.id }}</td>
+                <td>{{ moto.titre }}</td>
+                <td>{{ moto.description }}</td>
+                <td>{{ moto.km }}</td>
+                <td>{{ moto.prix }}</td>
+                <td>{{ moto.date ? moto.date|date('Y-m-d') : '' }}</td>
+                <td>{{ moto.puissance }}</td>
+                <td>
+                    <a href="{{ path('app_moto_show', {'id': moto.id}) }}">show</a>
+                    <a href="{{ path('app_moto_edit', {'id': moto.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation" align="center">
+{{ knp_pagination_render(moto) }}
+</div>
+
+    <a href="{{ path('app_moto_new') }}">Create new</a>
+{% endblock %}
