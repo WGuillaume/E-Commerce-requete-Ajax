@@ -4,6 +4,7 @@ Un projet de site e-commerce développé avec Symfony et Composer utilise ces de
 
 un site e-commerce avec des fonctionnalités telles que l'ajout d'articles au panier, l'affichage des articles dans le panier, la suppression d'articles du panier
 utilisant des requêtes AJAX pour gérer les interactions côté client sans avoir besoin de recharger la page.
+Une fonctionnalités de crud et l'autorization/l'auth
 
 
 ![image](https://github.com/WGuillaume/E-Commerce-requete-Ajax/blob/main/public/image/image%20(1).png)
